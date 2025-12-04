@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Navigation from "@/components/Navigation";
@@ -14,79 +16,87 @@ import {
   Server,
   Cloud,
   GitBranch,
-  Smartphone,
-  Layout,
   Terminal,
+  Lock,
+  Container,
+  Network,
 } from "lucide-react";
-
-import ecommerceImg from "@assets/generated_images/E-commerce_project_mockup_6246c571.png";
-import socialImg from "@assets/generated_images/Social_media_dashboard_mockup_93f48715.png";
-import taskImg from "@assets/generated_images/Task_management_app_mockup_e291fe55.png";
-import profileImg from "@assets/generated_images/Professional_developer_headshot_b4f0f43e.png";
+import Image from "next/image";
 
 const projects = [
   {
-    title: "E-Commerce Platform",
-    description: "A full-featured online shopping platform with cart, payments, and admin dashboard",
-    fullDescription: "A comprehensive e-commerce solution built with React and Node.js, featuring real-time inventory management, secure payment processing with Stripe, and an intuitive admin dashboard for managing products, orders, and customers. The platform includes advanced features like abandoned cart recovery, product recommendations, and detailed analytics.",
-    image: ecommerceImg,
-    technologies: ["React", "Node.js", "MongoDB", "Stripe", "Redis", "AWS"],
+    title: "Crypto Fear & Greed Index",
+    description: "A modern web application displaying real-time Crypto Fear & Greed Index with beautiful visualizations",
+    fullDescription: "A comprehensive platform that displays the Crypto Fear & Greed Index, providing real-time insights into market sentiment. Based on volatility, social media sentiments, surveys, market momentum, and more. Features live cryptocurrency prices, market cap data, BTC dominance charts, and detailed analytics to help traders and investors understand market psychology and make informed decisions.",
+    image: "/generated_images/crypto-greed-index-thumbnail.png",
+    technologies: ["Next.js", "TypeScript", "React", "Tailwind CSS"],
     features: [
-      "Real-time inventory management and stock tracking",
-      "Secure payment processing with Stripe integration",
-      "Admin dashboard with analytics and reporting",
-      "Customer authentication and profile management",
-      "Shopping cart with persistent storage",
-      "Order tracking and notification system",
+      "Real-time Crypto Fear & Greed Index data",
+      "Live cryptocurrency prices and market cap",
+      "BTC Dominance and Rainbow charts",
+      "Beautiful data visualizations and charts",
+      "Market sentiment analysis and trends",
+      "Responsive design for all devices",
     ],
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com",
+    liveUrl: "https://www.cryptogreedindex.com/",
+    githubUrl: "https://github.com/ankittyagi140/crypto-greed-index",
   },
   {
-    title: "Social Media Dashboard",
-    description: "Analytics dashboard for tracking social media metrics across multiple platforms",
-    fullDescription: "A comprehensive social media analytics platform that aggregates data from multiple social networks into a unified dashboard. Built with modern web technologies, it provides real-time insights, engagement metrics, and customizable reports to help businesses optimize their social media strategy.",
-    image: socialImg,
-    technologies: ["React", "TypeScript", "GraphQL", "PostgreSQL", "Docker"],
+    title: "MCP Server Directory",
+    description: "Discover and share Model Context Protocol Servers for AI applications and development",
+    fullDescription: "The central hub for MCP Servers, featuring 318+ MCP Servers and 16 MCP Clients. A comprehensive platform to discover and share Model Context Protocol (MCP) Servers for AI applications, development, and integration. Built with TypeScript, it provides powerful features including server management, secure authentication, analytics dashboard, and real-time notifications. Trusted by AI developers worldwide including Anthropic, OpenAI, and Cohere.",
+    image: "/generated_images/mcp-server-directory-thumbnail.png",
+    technologies: ["TypeScript", "React", "Next.js"],
     features: [
-      "Multi-platform social media integration",
-      "Real-time analytics and engagement metrics",
-      "Customizable dashboard with drag-and-drop widgets",
-      "Automated reporting and scheduled exports",
-      "Team collaboration features",
-      "Advanced data visualization with charts",
+      "318+ MCP Servers and 16 MCP Clients directory",
+      "Server management and monitoring",
+      "Secure authentication system",
+      "Analytics dashboard with performance metrics",
+      "Real-time notifications",
+      "Customizable settings and configurations",
     ],
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com",
+    liveUrl: "https://www.mcp-server-directory.com/",
+    githubUrl: "https://github.com/ankittyagi140/mcp-server-directory",
   },
   {
-    title: "Task Management App",
-    description: "Collaborative project management tool with kanban boards and team features",
-    fullDescription: "A powerful project management application designed for agile teams. Features kanban boards, sprint planning, task dependencies, and real-time collaboration. Built with performance in mind, it handles large projects with ease while maintaining a smooth user experience.",
-    image: taskImg,
-    technologies: ["Next.js", "Tailwind CSS", "Prisma", "WebSocket", "Vercel"],
+    title: "A2A Protocol Directory",
+    description: "Discover, compare, and implement the best agent-to-agent protocols for AI systems",
+    fullDescription: "A comprehensive platform for discovering, comparing, and implementing Agent-to-Agent (A2A) protocols that enable AI systems to communicate and collaborate effectively. Features advanced protocol discovery, verified & trusted protocols, side-by-side comparison tools, detailed documentation, community reviews, and developer resources. Trusted by 100+ companies and researchers, with 10+ listed protocols and 1k+ active users.",
+    image: "/generated_images/a2a-protocol-thumbnail.png",
+    technologies: ["TypeScript", "React", "Next.js"],
     features: [
-      "Kanban boards with drag-and-drop functionality",
-      "Real-time collaboration with WebSocket",
-      "Sprint planning and backlog management",
-      "Task dependencies and subtasks",
-      "Team member assignment and notifications",
-      "Time tracking and productivity analytics",
+      "Advanced protocol discovery and search",
+      "Verified & trusted protocol listings",
+      "Side-by-side protocol comparison",
+      "Comprehensive documentation and guides",
+      "Community reviews and discussions",
+      "Developer resources, APIs, and SDKs",
     ],
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com",
+    liveUrl: "https://www.a2aprotocal.com/",
+    githubUrl: "https://github.com/ankittyagi140",
   },
 ];
 
 const skills = [
-  { name: "React", icon: Code2, proficiency: 5 },
+  { name: "Python", icon: Code2, proficiency: 5 },
   { name: "Node.js", icon: Server, proficiency: 5 },
-  { name: "TypeScript", icon: Code2, proficiency: 4 },
-  { name: "MongoDB", icon: Database, proficiency: 4 },
-  { name: "PostgreSQL", icon: Database, proficiency: 4 },
-  { name: "AWS", icon: Cloud, proficiency: 4 },
-  { name: "Docker", icon: Terminal, proficiency: 4 },
-  { name: "Git", icon: GitBranch, proficiency: 5 },
+  { name: "Express", icon: Server, proficiency: 5 },
+  { name: "React", icon: Code2, proficiency: 5 },
+  { name: "Next.js", icon: Code2, proficiency: 5 },
+  { name: "TypeScript", icon: Code2, proficiency: 5 },
+  { name: "JavaScript", icon: Code2, proficiency: 5 },
+  { name: "SQL", icon: Database, proficiency: 5 },
+  { name: "NoSQL", icon: Database, proficiency: 5 },
+  { name: "Microservices", icon: Network, proficiency: 5 },
+  { name: "Redis", icon: Database, proficiency: 4 },
+  { name: "AWS", icon: Cloud, proficiency: 5 },
+  { name: "Docker", icon: Container, proficiency: 5 },
+  { name: "Kubernetes", icon: Container, proficiency: 4 },
+  { name: "Jenkins", icon: Terminal, proficiency: 5 },
+  { name: "OAuth2", icon: Lock, proficiency: 5 },
+  { name: "OKTA", icon: Lock, proficiency: 5 },
+  { name: "JWT", icon: Lock, proficiency: 5 },
+  { name: "Splunk", icon: Terminal, proficiency: 4 },
 ];
 
 export default function Home() {
@@ -148,10 +158,10 @@ export default function Home() {
             >
               <h2 className="text-4xl font-bold text-center mb-4">Skills & Technologies</h2>
               <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-                My technical expertise spans across modern web technologies and cloud platforms
+                Expertise in full-stack development, cloud native architecture, and DevOps practices
               </p>
 
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 max-w-6xl mx-auto">
                 {skills.map((skill, index) => (
                   <motion.div
                     key={skill.name}
@@ -188,9 +198,11 @@ export default function Home() {
                 >
                   <div className="relative">
                     <div className="w-64 h-64 md:w-80 md:h-80 rounded-lg overflow-hidden">
-                      <img
-                        src={profileImg}
-                        alt="Alex Morgan"
+                      <Image
+                        src="/generated_images/ankit_tyagi.jpg"
+                        alt="Ankit Tyagi"
+                        width={320}
+                        height={320}
                         className="w-full h-full object-cover"
                         data-testid="img-profile"
                       />
@@ -207,18 +219,23 @@ export default function Home() {
                   className="space-y-4"
                 >
                   <h3 className="text-2xl font-semibold">
-                    Full Stack Developer with a passion for building amazing web experiences
+                    Senior Software Engineer specializing in Cloud Native Microservices Architecture
                   </h3>
                   <p className="text-muted-foreground">
-                    With over 5 years of experience in web development, I specialize in creating
-                    scalable, performant applications using modern technologies. My expertise spans
-                    both frontend and backend development, with a focus on React, Node.js, and
-                    cloud platforms.
+                    Senior Software Engineer with extensive experience in designing, building, and deploying scalable and 
+                    performance-driven cloud native platforms using Microservices architecture.
                   </p>
                   <p className="text-muted-foreground">
-                    I'm passionate about writing clean, maintainable code and building products that
-                    solve real-world problems. When I'm not coding, you can find me contributing to
-                    open-source projects, writing technical articles, or exploring new technologies.
+                    <strong>Backend Expertise:</strong> Python, Node.js, Express, SQL, NoSQL, Microservices, Redis
+                  </p>
+                  <p className="text-muted-foreground">
+                    <strong>Frontend Expertise:</strong> React, Next.js, TypeScript, JavaScript
+                  </p>
+                  <p className="text-muted-foreground">
+                    <strong>DevOps & Cloud:</strong> CI/CD (Jenkins, Docker, Kubernetes), Red Hat on AWS, AWS Cloud Platform
+                  </p>
+                  <p className="text-muted-foreground">
+                    <strong>Security & Observability:</strong> OAuth2, OKTA, JWT, SSO, Splunk
                   </p>
 
                   <div className="pt-4">
@@ -228,8 +245,8 @@ export default function Home() {
                         <div className="flex items-start gap-3">
                           <div className="w-2 h-2 rounded-full bg-primary mt-2" />
                           <div>
-                            <h5 className="font-medium">Senior Full Stack Developer</h5>
-                            <p className="text-sm text-muted-foreground">Tech Corp • 2021 - Present</p>
+                            <h5 className="font-medium">Specialist Software Engineer</h5>
+                            <p className="text-sm text-muted-foreground">LTIMindtree • Aug 2022 - Present</p>
                           </div>
                         </div>
                       </Card>
@@ -237,8 +254,17 @@ export default function Home() {
                         <div className="flex items-start gap-3">
                           <div className="w-2 h-2 rounded-full bg-primary mt-2" />
                           <div>
-                            <h5 className="font-medium">Full Stack Developer</h5>
-                            <p className="text-sm text-muted-foreground">StartupXYZ • 2019 - 2021</p>
+                            <h5 className="font-medium">Associate Software Engineer</h5>
+                            <p className="text-sm text-muted-foreground">Cognizant Technology Solutions • Apr 2021 - Aug 2022</p>
+                          </div>
+                        </div>
+                      </Card>
+                      <Card className="p-4">
+                        <div className="flex items-start gap-3">
+                          <div className="w-2 h-2 rounded-full bg-primary mt-2" />
+                          <div>
+                            <h5 className="font-medium">Software Engineer</h5>
+                            <p className="text-sm text-muted-foreground">CISF (MHA) • Sep 2014 - Apr 2021</p>
                           </div>
                         </div>
                       </Card>
@@ -281,3 +307,4 @@ export default function Home() {
     </div>
   );
 }
+

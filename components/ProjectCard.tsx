@@ -1,8 +1,11 @@
+"use client";
+
 import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Github } from "lucide-react";
+import Image from "next/image";
 
 interface ProjectCardProps {
   title: string;
@@ -31,10 +34,11 @@ export default function ProjectCard({
     >
       <Card className="overflow-hidden cursor-pointer group hover-elevate active-elevate-2" onClick={onClick}>
         <div className="relative aspect-video overflow-hidden bg-muted">
-          <img
+          <Image
             src={image}
             alt={title}
-            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+            fill
+            className="object-cover transition-transform duration-300 group-hover:scale-105"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6 gap-3">
             {liveUrl && (

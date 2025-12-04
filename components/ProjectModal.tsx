@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Dialog,
   DialogContent,
@@ -8,6 +10,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Github, X } from "lucide-react";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import Image from "next/image";
 
 interface ProjectModalProps {
   isOpen: boolean;
@@ -36,10 +39,11 @@ export default function ProjectModal({ isOpen, onClose, project }: ProjectModalP
         <ScrollArea className="max-h-[calc(90vh-8rem)]">
           <div className="px-6 pb-6">
             <div className="relative aspect-video overflow-hidden rounded-lg mb-6">
-              <img
+              <Image
                 src={project.image}
                 alt={project.title}
-                className="w-full h-full object-cover"
+                fill
+                className="object-cover"
               />
             </div>
 

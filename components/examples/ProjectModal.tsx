@@ -1,7 +1,8 @@
+"use client";
+
 import ProjectModal from "../ProjectModal";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import projectImage from "@assets/generated_images/E-commerce_project_mockup_6246c571.png";
 
 export default function ProjectModalExample() {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,7 +11,7 @@ export default function ProjectModalExample() {
     title: "E-Commerce Platform",
     description: "A full-featured online shopping platform",
     fullDescription: "A comprehensive e-commerce solution built with React and Node.js, featuring real-time inventory management, secure payment processing, and an intuitive admin dashboard for managing products, orders, and customers.",
-    image: projectImage,
+    image: "/generated_images/E-commerce_project_mockup_6246c571.png",
     technologies: ["React", "Node.js", "MongoDB", "Stripe", "Redis", "AWS"],
     features: [
       "Real-time inventory management and stock tracking",

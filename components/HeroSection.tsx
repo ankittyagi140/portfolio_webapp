@@ -1,12 +1,13 @@
+"use client";
+
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
-import heroBackground from "@assets/generated_images/Dark_tech_hero_background_a7b405a4.png";
 import { useEffect, useState } from "react";
 
 export default function HeroSection() {
   const [displayText, setDisplayText] = useState("");
-  const roles = ["Full Stack Developer", "React Specialist", "Node.js Expert", "Cloud Architect"];
+  const roles = ["Senior Software Engineer", "Python developer", "React Specialist", "Node.js Expert", "Full Stack Developer"];
   const [roleIndex, setRoleIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
@@ -44,7 +45,7 @@ export default function HeroSection() {
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
       <div 
         className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${heroBackground})` }}
+        style={{ backgroundImage: `url(/generated_images/Dark_tech_hero_background_a7b405a4.png)` }}
       >
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-background" />
       </div>
@@ -61,7 +62,7 @@ export default function HeroSection() {
           transition={{ delay: 0.2, duration: 0.8 }}
           className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-white"
         >
-          Hi, I'm <span className="bg-gradient-to-r from-primary to-purple-500 bg-clip-text text-transparent">Alex Morgan</span>
+          Hi, I'm <span className="bg-gradient-to-r from-primary to-purple-500 bg-clip-text text-transparent">Ankit Tyagi</span>
         </motion.h1>
 
         <motion.div
@@ -82,8 +83,8 @@ export default function HeroSection() {
           transition={{ delay: 0.6, duration: 0.8 }}
           className="text-lg md:text-xl text-white/80 mb-12 max-w-2xl mx-auto"
         >
-          Building scalable web applications with modern technologies.
-          Passionate about clean code, user experience, and innovative solutions.
+          Senior Software Engineer with experience in designing, building, and deploying scalable and 
+          performance-driven cloud native platforms using Microservices architecture.
         </motion.p>
 
         <motion.div
